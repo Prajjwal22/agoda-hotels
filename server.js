@@ -13,6 +13,10 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+app.get("/", async (req, res) => {
+  res.send("Hello World!");
+});
+
 app.get("/hotels", async (req, res) => {
   console.log(req);
   try {
@@ -28,8 +32,6 @@ app.get("/hotels", async (req, res) => {
     } = req.query;
 
     console.log(searchText, "pradjjwal");
-
-
 
     const url = `https://www.agoda.com/api/cronos/search/GetUnifiedSuggestResult/3/16/1/0/en-gb/?searchText=${searchText}&guid=${guid}&origin=${origin}&cid=${cid}&pageTypeId=${pageTypeId}&logtime=${logtime}&logTypeId=${logTypeId}&isHotelLandSearch=${isHotelLandSearch}`;
 
